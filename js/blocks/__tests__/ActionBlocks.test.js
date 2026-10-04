@@ -390,6 +390,7 @@ describe("ActionBlocks", () => {
 
             expect(activity.stage.dispatchEvent).not.toHaveBeenCalled();
             expect(logo.eventList).toEqual({});
+            expect(logo.stopTurtle).toBe(true);
         });
     });
 
