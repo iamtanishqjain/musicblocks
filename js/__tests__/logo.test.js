@@ -3144,10 +3144,11 @@ describe("Logo processShow", () => {
         global.VIDEOVALUE = originalVideoValue;
     });
 
-    test("shows nothing rather than throwing when the obj slot is empty", () => {
+    test("stops rather than throwing when the obj slot is empty", () => {
         logo.blockList = [{ connections: [null, null, null] }];
         expect(() => logo.processShow(0, 0, 12, null)).not.toThrow();
-        expect(turtle0.doShowText).toHaveBeenCalledWith(12, null);
+        expect(logo.stopTurtle).toBe(true);
+        expect(turtle0.doShowText).not.toHaveBeenCalled();
     });
 });
 describe("Logo.processSpeak", () => {
